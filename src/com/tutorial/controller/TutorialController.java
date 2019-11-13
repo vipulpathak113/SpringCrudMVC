@@ -82,13 +82,18 @@ public class TutorialController {
 	        return "redirect:/loginProcess";    
 	    }     
 	  
-	  @RequestMapping(value="/edit/{user}",method = RequestMethod.GET)
-	  
-	    public String editUser(@PathVariable String user,Model model){    
-		  SignupModel user= tutorialService.deleteUser(user);  
-	        m.addAttribute("command",emp);  
-	        return "empeditform";       
-	    } 
+@RequestMapping(value="/edit/{user}",method = RequestMethod.GET)
+   public ModelAndView editUser(@PathVariable String user, @ModelAttribute("edit") SignupModel model){    
+	ModelAndView mav = new ModelAndView("editUser");
+	  mav.addObject("edit", tutorialService.getUser(user));
+	return mav;   
+    } 
+
+@RequestMapping(value="/editsave",method = RequestMethod.POST)
+public ModelAndView updateUser(@ModelAttribute("edit") SignupModel model){  
+	 tutorialService.SaveUser(model);
+	return new ModelAndView("redirect:/");      
+ } 
 	  
 	  
 	  

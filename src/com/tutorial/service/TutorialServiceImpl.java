@@ -38,5 +38,10 @@ public class TutorialServiceImpl implements TutorialService {
 		tutorialDao.deleteUser(user);
 		
 	}
+
+	@Override
+	public SignupModel getUser(String user) {
+		return tutorialDao.getUser(user);
+	}
 	
 }

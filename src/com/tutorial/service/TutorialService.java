@@ -12,6 +12,6 @@ public interface TutorialService {
 	public List<SignupModel> getAllUsers();
 	public SignupModel validateUser(LoginModel login);
 	public void deleteUser(String user);
-
+	public SignupModel getUser(String user);
 	
 }

@@ -25,6 +25,8 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+	
+	<mvc:resources location="/webjars/" mapping="/webjars/**"></mvc:resources>
  <import resource= "application-context.xml"/>
  
 </beans>

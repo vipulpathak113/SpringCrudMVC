@@ -52,5 +52,16 @@ public class TutorialDaoImpl implements TutorialDao  {
 		repo.delete(user);
 		
 	}
+
+	@Override
+	public SignupModel getUser(String user) {
+		if(repo.findOne(user)==null){
+			return null;
+		}
+		else {
+			return modelMapper.map(repo.findOne(user),new TypeToken<SignupModel>() {}.getType());
+		}
+		
+	}
 	
 }

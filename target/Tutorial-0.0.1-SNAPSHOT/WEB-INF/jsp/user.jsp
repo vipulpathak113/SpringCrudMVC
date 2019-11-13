@@ -5,12 +5,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>User List</title>
+<link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <h1>Users List</h1>  
-<table border="2" width="70%" cellpadding="2">  
-<tr><th>UserName</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Address</th><th>Phone</th></tr>  
+<div class="container">
+<table class="table table-striped">  
+<tr><th>UserName</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Address</th><th>Phone</th><th>Action</th></tr>  
    <c:forEach var="user" items="${allUsers}">   
    <tr>  
    <td>${user.username}</td>  
@@ -19,13 +21,20 @@
    <td>${user.email}</td>
       <td>${user.address}</td>
       <td>${user.phone}</td>
-   <td><a href="edit/${user.username}">Edit</a></td>  
-   <td><a href="delete/${user.username}">Delete</a></td>  
+   <td><a class="btn btn-primary" href="edit/${user.username}">Edit</a></td>  
+   <td><a class="btn btn-danger" href="delete/${user.username}">Delete</a></td>  
    </tr>  
    </c:forEach>  
    </table>  
    <br/>  
-   <a href="/Tutorial/register">Add New Employee</a>  
+   <div>
+   
+   <a class="btn btn-primary" href="/Tutorial/register">Add New User</a>  
+   </div>
+   
+   </div>
+   <script src="webjars/jquery/3.4.1/js/jquery.min.js"></script>
+   <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

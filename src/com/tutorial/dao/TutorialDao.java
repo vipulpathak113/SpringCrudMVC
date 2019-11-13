@@ -16,4 +16,5 @@ public interface TutorialDao {
 	public List<SignupModel> getAllUsers();
 	
 	public void deleteUser(String user);
+	public SignupModel getUser(String user);
 }

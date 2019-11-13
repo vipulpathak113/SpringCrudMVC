@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
   
         <h1>Edit User</h1>  
-       <form:form method="POST" action="/SpringMVCCRUDSimple/editsave">    
+       <form:form method="POST" action="/Tutorial/editsave" modelAttribute="edit">    
       <table align="center">
                     <tr>
                         <td>
@@ -54,7 +54,7 @@
                     </tr>
                     <tr>    
           <td> </td>    
-          <td><input type="submit" value="Edit Save" /></td>    
+          <td><input type="submit" value="Save" /></td>    
          </tr>    
                 </table>        
        </form:form>    
