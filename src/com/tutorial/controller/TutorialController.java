@@ -3,10 +3,12 @@ package com.tutorial.controller;
  
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -76,16 +78,23 @@ public class TutorialController {
 	
 	  @RequestMapping(value = "/registerProcess", method = RequestMethod.POST)
 	  public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
-	  @ModelAttribute("user") SignupModel user) {
+			  @Valid @ModelAttribute("user") SignupModel user, BindingResult result) {
+		  
+		  if(result.hasErrors()) {
+			  return new ModelAndView("redirect:/register"); 
+		  }
+		  
+		  else {
 		  tutorialService.SaveUser(user);
 		  ModelAndView mav = new ModelAndView("welcome");
 		  mav.addObject("allUsers", tutorialService.getAllUsers());
 		  mav.addObject("firstname", user.getFirstname());
 	  return mav;
+		  }
 	  }
 	  
 	  @RequestMapping(value="/delete/{user}",method = RequestMethod.GET)    
-	    public String deleteUser(@PathVariable String user){    
+	    public String deleteUser(@ModelAttribute("user") @PathVariable String user ){    
 	        tutorialService.deleteUser(user);   
 	        return "redirect:/welcome";    
 	    }     

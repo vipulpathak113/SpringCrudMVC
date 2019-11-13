@@ -3,42 +3,38 @@
         <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-            <title>Edit User</title>
+            <title>Edit</title>
             <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         </head>
         <body>
         
         <h2>Edit User</h2>
         <div class="container">
-            <form:form method="POST" action="/Tutorial/editsave" modelAttribute="edit"> 
+             <form:form action="/Tutorial/editsave" modelAttribute="edit" method="post" >
                 
                      <fieldset class="form-group">
-                     <label>UserName</label>
-                     <input name="username" type="text" class="form-control" required="required"/>
-                     </fieldset>
-                     <fieldset class="form-group">
-                     <label>Password</label>
-                     <input name="password" type="password" class="form-control" required="required"/>
+                     <form:label path="username">UserName</form:label>
+                     <form:input path="username" type="text" class="form-control" required="required"/>
                      </fieldset>
                     <fieldset class="form-group">
-                     <label>First Name</label>
-                     <input name="firstname" type="text" class="form-control" required="required"/>
+                     <form:label path="firstname">First Name</form:label>
+                     <form:input path="firstname" type="text" class="form-control" required="required"/>
                      </fieldset>
                     <fieldset class="form-group">
-                     <label>Last Name</label>
-                     <input name="lastname" type="text" class="form-control" required="required"/>
+                     <form:label path="lastname">Last Name</form:label>
+                     <form:input path="lastname" type="text" class="form-control" required="required"/>
                      </fieldset>
                     <fieldset class="form-group">
-                     <label>Email</label>
-                     <input name="email" type="email" class="form-control" required="required"/>
+                     <form:label path="email">Email</form:label>
+                     <form:input path="email" type="email" class="form-control" required="required"/>
                      </fieldset>
                     <fieldset class="form-group">
-                     <label>Address</label>
-                     <input name="address" type="text" class="form-control" required="required"/>
+                     <form:label path="address">Address</form:label>
+                     <form:input path="address" type="text" class="form-control" required="required"/>
                      </fieldset>
                     <fieldset class="form-group">
-                     <label>Phone Number</label>
-                     <input name="phone" type="number" class="form-control" required="required"/>
+                     <form:label path="phone">Phone Number</form:label>
+                     <form:input path="phone" type="number" class="form-control" required="required"/>
                      </fieldset>
                     <input class="btn btn-success" type="submit" value="Save"/>
                     

@@ -1,7 +1,11 @@
 package com.tutorial.model;
 
+import javax.validation.constraints.Size;
+
 public class SignupModel {
 	private String username;
+	
+	@Size(min=1, max=6,message="Password should be alteast 6 digit")
 	  private String password;
 	  private String firstname;
 	  private String lastname;

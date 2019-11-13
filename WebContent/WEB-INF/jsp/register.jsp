@@ -13,32 +13,33 @@
             <form:form id="regForm" modelAttribute="user" action="registerProcess" method="post">
                 
                      <fieldset class="form-group">
-                     <label>UserName</label>
-                     <input name="username" type="text" class="form-control" required="required"/>
+                     <form:label path="username">UserName</form:label>
+                     <form:input path="username" type="text" class="form-control" required="required"/>
                      </fieldset>
                      <fieldset class="form-group">
-                     <label>Password</label>
-                     <input name="password" type="password" class="form-control" required="required"/>
+                     <form:label path="password">Password</form:label>
+                     <form:input path="password" type="password" class="form-control" required="required"/>
+                     <form:errors path="password" />
                      </fieldset>
                     <fieldset class="form-group">
-                     <label>First Name</label>
-                     <input name="firstname" type="text" class="form-control" required="required"/>
+                     <form:label path="firstname">First Name</form:label>
+                     <form:input path="firstname" type="text" class="form-control" required="required"/>
                      </fieldset>
                     <fieldset class="form-group">
-                     <label>Last Name</label>
-                     <input name="lastname" type="text" class="form-control" required="required"/>
+                     <form:label path="lastname">Last Name</form:label>
+                     <form:input path="lastname" type="text" class="form-control" required="required"/>
                      </fieldset>
                     <fieldset class="form-group">
-                     <label>Email</label>
-                     <input name="email" type="email" class="form-control" required="required"/>
+                     <form:label path="email">Email</form:label>
+                     <form:input path="email" type="email" class="form-control" required="required"/>
                      </fieldset>
                     <fieldset class="form-group">
-                     <label>Address</label>
-                     <input name="address" type="text" class="form-control" required="required"/>
+                     <form:label path="address">Address</form:label>
+                     <form:input path="address" type="text" class="form-control" required="required"/>
                      </fieldset>
                     <fieldset class="form-group">
-                     <label>Phone Number</label>
-                     <input name="phone" type="number" class="form-control" required="required"/>
+                     <form:label path="phone">Phone Number</form:label>
+                     <form:input path="phone" type="number" class="form-control" required="required"/>
                      </fieldset>
                     <input class="btn btn-success" type="submit" value="Register"/>
                     

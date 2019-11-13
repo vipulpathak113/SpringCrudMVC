@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @NamedQuery(name="SignupEntity.getAllUsers",query="SELECT u from SignupEntity u")
@@ -21,6 +22,8 @@ public class SignupEntity {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	@Size(min=1, max=6,message="Password should be alteast 6 digit")
 	@Column(name="password")
 	  private String password;
 	@Column(name="firstname")
