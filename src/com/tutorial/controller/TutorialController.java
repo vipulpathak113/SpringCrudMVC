@@ -66,6 +66,14 @@ public class TutorialController {
 		return "register";
 	}
 	
+	@RequestMapping(value ="/welcome" ,method=RequestMethod.GET)
+	public ModelAndView getAll(Model model,@ModelAttribute("user") SignupModel user){
+		ModelAndView mav = new ModelAndView("welcome");
+		  mav.addObject("allUsers", tutorialService.getAllUsers());
+		  mav.addObject("firstname", user.getFirstname());
+	  return mav;
+	}
+	
 	  @RequestMapping(value = "/registerProcess", method = RequestMethod.POST)
 	  public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
 	  @ModelAttribute("user") SignupModel user) {
@@ -79,7 +87,7 @@ public class TutorialController {
 	  @RequestMapping(value="/delete/{user}",method = RequestMethod.GET)    
 	    public String deleteUser(@PathVariable String user){    
 	        tutorialService.deleteUser(user);   
-	        return "redirect:/loginProcess";    
+	        return "redirect:/welcome";    
 	    }     
 	  
 @RequestMapping(value="/edit/{user}",method = RequestMethod.GET)
@@ -92,7 +100,7 @@ public class TutorialController {
 @RequestMapping(value="/editsave",method = RequestMethod.POST)
 public ModelAndView updateUser(@ModelAttribute("edit") SignupModel model){  
 	 tutorialService.SaveUser(model);
-	return new ModelAndView("redirect:/");      
+	return new ModelAndView("redirect:/welcome");      
  } 
 	  
 	  
